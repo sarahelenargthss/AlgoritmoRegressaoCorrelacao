@@ -75,13 +75,11 @@ def analisar_dados(vetor_x, vetor_y, titulo):
     b0, b1 = regressao(vetor_x, vetor_y)
 
     # adiciona reta de regressão no gráfico
-    x = []
     y = []
-    for i in range(max(vetor_x) + 1):
-        x.append(i)
-        y.append(b0 + b1 * i)
+    for i in range(len(vetor_x)):
+        y.append(b0 + b1 * vetor_x[i])
 
-    plt.plot(x, y)
+    plt.plot(vetor_x, y)
  
     # adiciona pontos no gráfico
     plt.plot(vetor_x, vetor_y, 'ro')
@@ -89,7 +87,6 @@ def analisar_dados(vetor_x, vetor_y, titulo):
     plt.ylabel('y')  
     
     # adiciona coeficientes
-    #'r = ' + str(r) + '\nb0 = ' + str(b0) + '\nb1 = ' + str(b1)
     plt.title(titulo + f' - Correlação = {r:.5f}   B0 = {b0:.5f}   B1 = {b1:.5f}') 
 
     plt.show()
